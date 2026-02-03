@@ -5,7 +5,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { icon: Behance, url: 'https://www.behance.net/yatishkapila', label: 'Behance' },
+    { icon: Palette, url: 'https://www.behance.net/yatishkapila', label: 'Behance' },
     { icon: Linkedin, url: '#', label: 'LinkedIn' },
     { icon: Dribbble, url: '#', label: 'Dribbble' },
     { icon: Github, url: '#', label: 'GitHub' }

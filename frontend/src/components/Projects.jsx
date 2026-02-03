@@ -3,6 +3,51 @@ import { Card, CardContent } from './ui/card';
 import { Button } from './ui/button';
 import { ExternalLink } from 'lucide-react';
 
+const ProjectCard = ({ project }) => {
+  const handleClick = () => {
+    window.open(project.url, '_blank');
+  };
+
+  return (
+    <Card className="group overflow-hidden border-gray-200 hover:shadow-xl transition-all duration-300">
+      <div className="relative overflow-hidden aspect-[4/3]">
+        <img 
+          src={project.image} 
+          alt={project.title}
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+        />
+      </div>
+      
+      <CardContent className="p-6">
+        <h3 className="text-xl font-bold mb-2 text-gray-900">
+          {project.title}
+        </h3>
+        <p className="text-gray-600 mb-4">
+          {project.description}
+        </p>
+        <div className="flex flex-wrap gap-2 mb-4">
+          {project.tags.map((tag, index) => (
+            <span 
+              key={index}
+              className="px-3 py-1 bg-gray-100 text-gray-700 text-xs rounded-full"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+        <Button 
+          variant="ghost" 
+          className="w-full justify-center gap-2 hover:bg-gray-100"
+          onClick={handleClick}
+        >
+          View on Behance
+          <ExternalLink className="w-4 h-4" />
+        </Button>
+      </CardContent>
+    </Card>
+  );
+};
+
 const Projects = () => {
   const projects = [
     {
@@ -31,10 +76,6 @@ const Projects = () => {
     }
   ];
 
-  const handleViewProject = (url) => {
-    window.open(url, '_blank');
-  };
-
   return (
     <section id="projects" className="py-24 bg-gradient-to-b from-white to-gray-50">
       <div className="container mx-auto px-6">
@@ -48,45 +89,7 @@ const Projects = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project) => (
-              <Card 
-                key={project.id} 
-                className="group overflow-hidden border-gray-200 hover:shadow-xl transition-all duration-300"
-              >
-                <div className="relative overflow-hidden aspect-[4/3]">
-                  <img 
-                    src={project.image} 
-                    alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-                
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-bold mb-2 text-gray-900">
-                    {project.title}
-                  </h3>
-                  <p className="text-gray-600 mb-4">
-                    {project.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tags.map((tag, index) => (
-                      <span 
-                        key={index}
-                        className="px-3 py-1 bg-gray-100 text-gray-700 text-xs rounded-full"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  <Button 
-                    variant="ghost" 
-                    className="w-full justify-center gap-2 hover:bg-gray-100"
-                    onClick={() => handleViewProject(project.url)}
-                  >
-                    View on Behance
-                    <ExternalLink className="w-4 h-4" />
-                  </Button>
-                </CardContent>
-              </Card>
+              <ProjectCard key={project.id} project={project} />
             ))}
           </div>
         </div>

@@ -19,7 +19,7 @@ const Projects = () => {
     {
       id: 2,
       title: "Men's App",
-      description: 'Modern e-commerce experience tailored for men\'s fashion and lifestyle products',
+      description: "Modern e-commerce experience tailored for men's fashion and lifestyle products",
       url: 'https://www.behance.net/gallery/234626967/Mens-App',
       image: 'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/6c7e9a234626967.67a6e9fe4d0b5.png',
       tags: ['E-commerce', 'Mobile App', 'Fashion']

@@ -1,12 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Card, CardContent } from './ui/card';
 import { Button } from './ui/button';
-import { ExternalLink, Maximize2 } from 'lucide-react';
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from './ui/dialog';
+import { ExternalLink } from 'lucide-react';
 
 const Projects = () => {
-  const [selectedProject, setSelectedProject] = useState(null);
-
   const projects = [
     {
       id: 1,
@@ -18,8 +15,8 @@ const Projects = () => {
     },
     {
       id: 2,
-      title: "Men's App",
-      description: "Modern e-commerce experience tailored for men's fashion and lifestyle products",
+      title: 'Mens App',
+      description: 'Modern e-commerce experience tailored for mens fashion and lifestyle products',
       url: 'https://www.behance.net/gallery/234626967/Mens-App',
       image: 'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/6c7e9a234626967.67a6e9fe4d0b5.png',
       tags: ['E-commerce', 'Mobile App', 'Fashion']
@@ -33,6 +30,10 @@ const Projects = () => {
       tags: ['Sports', 'Interactive', 'UI/UX']
     }
   ];
+
+  const handleViewProject = (url) => {
+    window.open(url, '_blank');
+  };
 
   return (
     <section id="projects" className="py-24 bg-gradient-to-b from-white to-gray-50">
@@ -49,8 +50,7 @@ const Projects = () => {
             {projects.map((project) => (
               <Card 
                 key={project.id} 
-                className="group overflow-hidden border-gray-200 hover:shadow-xl transition-all duration-300 cursor-pointer"
-                onClick={() => setSelectedProject(project)}
+                className="group overflow-hidden border-gray-200 hover:shadow-xl transition-all duration-300"
               >
                 <div className="relative overflow-hidden aspect-[4/3]">
                   <img 
@@ -58,16 +58,13 @@ const Projects = () => {
                     alt={project.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-300 flex items-center justify-center">
-                    <Maximize2 className="w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  </div>
                 </div>
                 
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-bold mb-2 text-gray-900 group-hover:text-gray-700 transition-colors">
+                  <h3 className="text-xl font-bold mb-2 text-gray-900">
                     {project.title}
                   </h3>
-                  <p className="text-gray-600 mb-4 line-clamp-2">
+                  <p className="text-gray-600 mb-4">
                     {project.description}
                   </p>
                   <div className="flex flex-wrap gap-2 mb-4">
@@ -83,10 +80,7 @@ const Projects = () => {
                   <Button 
                     variant="ghost" 
                     className="w-full justify-center gap-2 hover:bg-gray-100"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      window.open(project.url, '_blank');
-                    }}
+                    onClick={() => handleViewProject(project.url)}
                   >
                     View on Behance
                     <ExternalLink className="w-4 h-4" />
@@ -97,44 +91,6 @@ const Projects = () => {
           </div>
         </div>
       </div>
-
-      {/* Project Detail Modal */}
-      <Dialog open={!!selectedProject} onOpenChange={() => setSelectedProject(null)}>
-        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
-          {selectedProject && (
-            <>
-              <DialogHeader>
-                <DialogTitle className="text-2xl font-bold">{selectedProject.title}</DialogTitle>
-              </DialogHeader>
-              <div className="mt-4">
-                <img 
-                  src={selectedProject.image} 
-                  alt={selectedProject.title}
-                  className="w-full rounded-lg mb-4"
-                />
-                <p className="text-gray-700 mb-6">{selectedProject.description}</p>
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {selectedProject.tags.map((tag, index) => (
-                    <span 
-                      key={index}
-                      className="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                <Button 
-                  className="w-full bg-gray-900 hover:bg-gray-800"
-                  onClick={() => window.open(selectedProject.url, '_blank')}
-                >
-                  View Full Project on Behance
-                  <ExternalLink className="w-4 h-4 ml-2" />
-                </Button>
-              </div>
-            </>
-          )}
-        </DialogContent>
-      </Dialog>
     </section>
   );
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Linkedin, Github, Dribbble, Behance } from 'lucide-react';
+import { Linkedin, Github, Dribbble, Palette } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();

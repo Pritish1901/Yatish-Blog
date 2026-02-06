@@ -77,13 +77,12 @@ agenthub/agents/youtube/db
 .cache/
 
 # Mobile development
-android-sdk/ frontend/node_modules/.cache/default-development/1.pack
-frontend/node_modules/.cache/default-development/1.pack
--e 
-# Environment files
-*.env
-*.env.*
--e 
+android-sdk/
+
+# Monorepo - ignore old frontend folder
+/frontend/
+frontend/node_modules/
+
 # Environment files
 *.env
 *.env.*

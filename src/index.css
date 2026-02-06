@@ -1,0 +1,193 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    margin: 0;
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+        "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+        "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+        monospace;
+}
+
+@layer base {
+  :root {
+        /* Modern light theme - Clean and professional */
+        --background: 0 0% 98%;
+        --foreground: 220 13% 13%;
+        --card: 0 0% 100%;
+        --card-foreground: 220 13% 13%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 220 13% 13%;
+        --primary: 220 13% 13%;
+        --primary-foreground: 0 0% 98%;
+        --secondary: 220 8% 25%;
+        --secondary-foreground: 0 0% 98%;
+        --muted: 220 5% 90%;
+        --muted-foreground: 220 8% 48%;
+        --accent: 39 89% 48%;
+        --accent-foreground: 220 13% 13%;
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 220 5% 92%;
+        --input: 220 5% 92%;
+        --ring: 220 13% 13%;
+        --chart-1: 220 70% 50%;
+        --chart-2: 39 89% 48%;
+        --chart-3: 10 80% 55%;
+        --chart-4: 280 65% 60%;
+        --chart-5: 340 75% 55%;
+        --radius: 0.75rem;
+    }
+  .dark {
+        /* Dark theme - Sophisticated and modern */
+        --background: 220 13% 8%;
+        --foreground: 0 0% 97%;
+        --card: 220 13% 13%;
+        --card-foreground: 0 0% 97%;
+        --popover: 220 13% 13%;
+        --popover-foreground: 0 0% 97%;
+        --primary: 0 0% 97%;
+        --primary-foreground: 220 13% 13%;
+        --secondary: 220 8% 70%;
+        --secondary-foreground: 220 13% 13%;
+        --muted: 220 5% 30%;
+        --muted-foreground: 220 5% 65%;
+        --accent: 39 89% 55%;
+        --accent-foreground: 220 13% 13%;
+        --destructive: 0 62.8% 30.6%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 220 13% 22%;
+        --input: 220 13% 22%;
+        --ring: 39 89% 55%;
+        --chart-1: 39 89% 55%;
+        --chart-2: 220 70% 50%;
+        --chart-3: 10 80% 55%;
+        --chart-4: 280 65% 60%;
+        --chart-5: 340 75% 55%;
+    }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    }
+  body {
+    @apply bg-background text-foreground;
+    }
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom animations inspired by Apple */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(30px, -30px) scale(1.1);
+  }
+}
+
+@keyframes floatDelayed {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-30px, 30px) scale(1.1);
+  }
+}
+
+@keyframes bounceSlow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 1s ease-out;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 1s ease-out;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 1s ease-out;
+}
+
+.animate-fade-in-delayed {
+  animation: fadeInUp 1s ease-out 0.3s both;
+}
+
+.animate-fade-in-delayed-2 {
+  animation: fadeInUp 1s ease-out 0.5s both;
+}
+
+.animate-fade-in-delayed-3 {
+  animation: fadeInUp 1s ease-out 0.7s both;
+}
+
+.animate-float {
+  animation: float 20s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: floatDelayed 20s ease-in-out infinite;
+}
+
+.animate-bounce-slow {
+  animation: bounceSlow 2s ease-in-out infinite;
+}
+
+/* Smooth transitions for all interactive elements */
+* {
+  transition-property: color, background-color, border-color, box-shadow;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}

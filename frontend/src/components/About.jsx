@@ -27,23 +27,23 @@ const About = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} id="about" className="py-24 bg-gradient-to-b from-white to-slate-50 relative overflow-hidden">
+    <section ref={sectionRef} id="about" className="py-24 bg-background relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute top-20 right-0 w-72 h-72 bg-gradient-to-br from-blue-50 to-transparent rounded-full blur-3xl opacity-40"></div>
+      <div className="absolute top-20 right-0 w-72 h-72 bg-accent/8 rounded-full blur-3xl"></div>
       
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto">
-          <h2 className={`text-4xl md:text-5xl font-bold mb-12 text-gray-900 transition-all duration-1000 ${
+          <h2 className={`text-4xl md:text-5xl font-bold mb-12 text-foreground transition-all duration-1000 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
             My Creative Journey
           </h2>
           
-          <Card className={`p-8 md:p-12 border-gray-200 shadow-sm hover:shadow-xl transition-all duration-500 transform ${
+          <Card className={`p-8 md:p-12 border-border shadow-sm hover:shadow-xl transition-all duration-500 transform ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
             <div className="prose prose-lg max-w-none">
-              <p className="text-gray-700 leading-relaxed mb-6 transition-all duration-700 delay-100">
+              <p className="text-muted-foreground leading-relaxed mb-6 transition-all duration-700 delay-100">
                 Hi! I'm a designer who loves turning ideas into easy-to-use digital experiences. 
                 My journey started with a passion for creativity and a curiosity about how things 
                 work — and led me into the world of UI/UX design.

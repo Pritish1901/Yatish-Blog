@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { Button } from './ui/button';
-import { ArrowDown } from 'lucide-react';
+import { ArrowDown, Sparkles } from 'lucide-react';
 
 const Hero = () => {
   const heroRef = useRef(null);
@@ -26,38 +26,48 @@ const Hero = () => {
   };
 
   return (
-    <section ref={heroRef} className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Modern Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-stone-100"></div>
-      
-      {/* Animated gradient orbs */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-blue-50 to-transparent rounded-full blur-3xl opacity-60 animate-float"></div>
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-br from-amber-50 to-transparent rounded-full blur-3xl opacity-60 animate-float-delayed"></div>
+    <section ref={heroRef} className="min-h-screen flex items-center justify-center relative overflow-hidden bg-background pt-20">
+      {/* Premium gradient background */}
+      <div className="absolute inset-0">
+        <div className="absolute -top-40 -right-40 w-96 h-96 bg-accent/15 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 left-10 w-80 h-80 bg-primary/5 rounded-full blur-3xl"></div>
+      </div>
       
       <div className="container mx-auto px-6 relative z-10">
-        <div ref={textRef} className="max-w-4xl mx-auto text-center animate-fade-in-up">
-          <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6 text-gray-900 tracking-tight">
-            <span className="inline-block animate-slide-in-left">Yatish</span>{' '}
-            <span className="inline-block animate-slide-in-right">Kapila</span>
+        <div ref={textRef} className="max-w-5xl mx-auto text-center animate-fade-in-up">
+          {/* Badge */}
+          <div className="mb-8 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/30 hover:border-accent/60 transition-colors duration-300">
+            <Sparkles className="w-4 h-4 text-accent" />
+            <span className="text-sm font-semibold text-foreground">Product & UI/UX Designer</span>
+          </div>
+
+          {/* Main heading */}
+          <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6 text-foreground tracking-tight leading-tight">
+            <span className="inline-block animate-slide-in-left">Crafting</span>{' '}
+            <span className="inline-block animate-slide-in-right text-accent">Digital</span>
+            <br />
+            <span className="inline-block animate-slide-in-left delay-100">Experiences</span>
           </h1>
-          <p className="text-xl md:text-2xl text-gray-600 mb-8 font-light animate-fade-in-delayed">
-            Product and UI/UX Designer
+
+          {/* Subheading */}
+          <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed font-light animate-fade-in-delayed">
+            I design intuitive, beautiful interfaces that solve real problems and delight users. From concept to launch, let's create something extraordinary.
           </p>
-          <p className="text-lg text-gray-500 mb-12 max-w-2xl mx-auto leading-relaxed animate-fade-in-delayed-2">
-            Creating intuitive digital experiences that blend creativity with functionality
-          </p>
-          <div className="flex gap-4 justify-center flex-wrap animate-fade-in-delayed-3">
+
+          {/* CTA Buttons */}
+          <div className="flex gap-4 justify-center flex-col sm:flex-row animate-fade-in-delayed-2">
             <Button 
               onClick={scrollToProjects}
               size="lg"
-              className="bg-gray-900 hover:bg-gray-800 text-white transition-all duration-300 hover:scale-105 hover:shadow-xl"
+              className="bg-primary hover:bg-secondary text-primary-foreground px-8 py-6 text-base font-semibold rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-xl group"
             >
-              View My Work
+              Explore My Work
+              <ArrowDown className="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-y-1" />
             </Button>
             <Button 
               variant="outline" 
               size="lg"
-              className="border-gray-300 hover:border-gray-900 transition-all duration-300 hover:scale-105 hover:shadow-lg"
+              className="border-border text-foreground hover:bg-muted px-8 py-6 text-base font-semibold rounded-lg transition-all duration-300 hover:scale-105"
               onClick={() => {
                 const link = document.createElement('a');
                 link.href = '/resume.pdf';
@@ -73,7 +83,10 @@ const Hero = () => {
 
       {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce-slow">
-        <ArrowDown className="w-6 h-6 text-gray-400" />
+        <div className="flex flex-col items-center">
+          <p className="text-xs text-muted-foreground mb-2">Scroll to explore</p>
+          <ArrowDown className="w-5 h-5 text-accent" />
+        </div>
       </div>
     </section>
   );

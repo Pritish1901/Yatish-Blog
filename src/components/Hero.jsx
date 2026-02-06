@@ -68,14 +68,9 @@ const Hero = () => {
               variant="outline" 
               size="lg"
               className="border-border text-foreground hover:bg-muted px-8 py-6 text-base font-semibold rounded-lg transition-all duration-300 hover:scale-105"
-              onClick={() => {
-                const link = document.createElement('a');
-                link.href = '/resume.pdf';
-                link.download = 'Yatish_Kapila_Resume.pdf';
-                link.click();
-              }}
+              onClick={() => scrollToProjects()}
             >
-              Download Resume
+              View My Work
             </Button>
           </div>
         </div>

@@ -68,7 +68,7 @@ const Hero = () => {
               variant="outline" 
               size="lg"
               className="border-border text-foreground hover:bg-muted px-8 py-6 text-base font-semibold rounded-lg transition-all duration-300 hover:scale-105"
-              onClick={() => scrollToProjects()}
+              onClick={scrollToProjects}
             >
               View My Work
             </Button>

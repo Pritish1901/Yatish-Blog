@@ -63,14 +63,9 @@ const Header = () => {
             <Button 
               size="sm"
               className="bg-primary hover:bg-secondary text-primary-foreground transition-all duration-300 hover:scale-105 hover:shadow-lg font-semibold"
-              onClick={() => {
-                const link = document.createElement('a');
-                link.href = '/resume.pdf';
-                link.download = 'Yatish_Kapila_Resume.pdf';
-                link.click();
-              }}
+              onClick={() => scrollToSection('#contact')}
             >
-              Resume
+              Contact
             </Button>
           </nav>
 
@@ -101,14 +96,11 @@ const Header = () => {
             <Button 
               className="bg-primary hover:bg-secondary text-primary-foreground w-full transition-all duration-300 hover:scale-105 font-semibold"
               onClick={() => {
-                const link = document.createElement('a');
-                link.href = '/resume.pdf';
-                link.download = 'Yatish_Kapila_Resume.pdf';
-                link.click();
+                scrollToSection('#contact');
                 setIsMobileMenuOpen(false);
               }}
             >
-              Download Resume
+              Contact Me
             </Button>
           </nav>
         </div>

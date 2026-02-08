@@ -42,7 +42,6 @@ const Skills = () => {
 
   return (
     <section ref={sectionRef} id="skills" className="py-24 bg-background relative overflow-hidden">
-      {/* Background decoration */}
       <div className="absolute top-20 right-20 w-72 h-72 bg-accent/8 rounded-full blur-3xl"></div>
       
       <div className="container mx-auto px-6 relative z-10">
@@ -54,7 +53,6 @@ const Skills = () => {
           </h2>
 
           <div className="grid md:grid-cols-2 gap-12">
-            {/* Tools */}
             <div>
               <h3 className={`text-2xl font-bold mb-8 text-foreground transition-all duration-1000 delay-100 ${
                 isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
@@ -82,7 +80,6 @@ const Skills = () => {
               </div>
             </div>
 
-            {/* Skills */}
             <div>
               <h3 className={`text-2xl font-bold mb-8 text-foreground transition-all duration-1000 delay-100 ${
                 isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
@@ -93,7 +90,7 @@ const Skills = () => {
                   return (
                     <Card 
                       key={index} 
-                      className={`p-6 border-gray-200 hover:border-gray-400 hover:shadow-xl transition-all duration-500 cursor-pointer group transform ${
+                      className={`p-6 border-border hover:border-accent hover:shadow-xl transition-all duration-500 cursor-pointer group transform ${
                         isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
                       }`}
                       style={{ transitionDelay: `${200 + index * 100}ms` }}
@@ -102,7 +99,7 @@ const Skills = () => {
                         <div className="p-3 bg-muted rounded-lg group-hover:bg-primary transition-all duration-300 group-hover:scale-110">
                           <Icon className="w-6 h-6 text-foreground group-hover:text-primary-foreground transition-colors duration-300" />
                         </div>
-                        <span className="text-lg font-semibold text-gray-900">{skill.name}</span>
+                        <span className="text-lg font-semibold text-foreground">{skill.name}</span>
                       </div>
                     </Card>
                   );

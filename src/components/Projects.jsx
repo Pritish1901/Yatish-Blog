@@ -83,7 +83,7 @@ function Projects() {
               </CardContent>
             </Card>
 
-            <Card className={`group overflow-hidden border-gray-200 hover:shadow-2xl transition-all duration-700 transform ${
+            <Card className={`group overflow-hidden border-border hover:shadow-2xl transition-all duration-700 transform ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`} style={{ transitionDelay: '150ms' }}>
               <div className="relative overflow-hidden aspect-[4/3] bg-muted">
@@ -117,7 +117,7 @@ function Projects() {
               </CardContent>
             </Card>
 
-            <Card className={`group overflow-hidden border-gray-200 hover:shadow-2xl transition-all duration-700 transform ${
+            <Card className={`group overflow-hidden border-border hover:shadow-2xl transition-all duration-700 transform ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`} style={{ transitionDelay: '300ms' }}>
               <div className="relative overflow-hidden aspect-[4/3] bg-muted">
